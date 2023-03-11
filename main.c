@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define NUMEROS_DO_SORTEIO 6
+
+ void sequencia();
+
+
+int main()
+{
+
+    printf("Soreteio da loteria!\n");
+
+    sequencia();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    void sequencia(){
+
+    int sorteados[5], k = 0, n = 1, m = 0;
+    char rodada = 's';
+
+    long int random = time(0);
+    srand(random);
+
+
+    while(n <= 6)
+    {
+
+        long int numeroRandom = rand();
+        long int numerosecreto = numeroRandom%61;
+
+        n++;
+        m = 0;
+
+        if(rodada != 's')
+        {
+            break;
+        }
+        for(int i = 0; i <= k; i++)
+        {
+
+
+            if(numerosecreto == sorteados[i])
+            {
+
+                 m = 1;
+
+            }
+
+        }
+
+        if(m != 1)
+        {
+            sorteados[k] = numerosecreto;
+        }
+
+
+        if(m != 0)
+        {
+
+            n--;
+            k--;
+
+        }
+
+        k++;
+
+    }
+    printf("\nA sequencia premiada é:");
+    for(int i = 0; i < k; i++)
+    {
+        printf(" %.2d", sorteados[i]);
+    }
+
+}
+
